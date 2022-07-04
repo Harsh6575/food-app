@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import "./Header.css";
-import HeaderCardButton from "./HeaderCardButton";
+import HeaderCartButton from "./HeaderCartButton";
 
 const Header = (props) => {
   return (
@@ -12,7 +12,7 @@ const Header = (props) => {
           </span>{" "}
           Food App
         </h1>
-        <HeaderCardButton onClick={props.onShowCart} />
+        <HeaderCartButton onClick={props.onShowCart} />
       </header>
       <div className="main-image">
         <img
