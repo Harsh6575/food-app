@@ -1,0 +1,29 @@
+.meals {
+    max-width: 60rem;
+    width: 90%;
+    margin: 2rem auto;
+    animation: meals-apperance 1s ease-in-out forwards;
+}
+
+.meals ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.meals ul li img {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes meals-apperance {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
