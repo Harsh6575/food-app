@@ -4,7 +4,7 @@ import './MealsSummary.css';
 
 const MealsSummary = () => {
   return (
-    <section className="summary">
+    <section className="m-summary">
       <h2>Delicious Food Delevered to you</h2>
       <p>
         Choose your favourite meals from our wide variety of delicious meals.
