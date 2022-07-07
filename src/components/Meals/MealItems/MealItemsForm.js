@@ -1,29 +1,33 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"; // import React's hooks from react
 
-import Input from "../../UI/Input";
-import "./MealItemsForm.css";
+import Input from "../../UI/Input"; // import Input from src/UI/Input.js
+import "./MealItemsForm.css"; // import css
 
-const MealItemForm = (props) => {
-  const [amountIsValid, setAmountIsValid] = useState(true);
-  const amountInputRef = useRef();
+const MealItemForm = (props) => { 
+  // create MealItemForm component
+  const [amountIsValid, setAmountIsValid] = useState(true); // create state for amountIsValid
 
-  const submitHandler = (event) => {
-    event.preventDefault();
+  const amountInputRef = useRef(); // create ref for amountInput
 
-    const enteredAmount = amountInputRef.current.value;
-    const enteredAmountNumber = +enteredAmount;
+  const submitHandler = (event) => { 
+    // create submitHandler
+    
+    event.preventDefault(); // prevent default behavior of form
+
+    const enteredAmount = amountInputRef.current.value; // get value of amountInput
+    const enteredAmountNumber = +enteredAmount; // convert to number
 
     if (
       enteredAmount.trim().length === 0 ||
       enteredAmountNumber < 1 ||
       enteredAmountNumber > 5
     ) {
-      setAmountIsValid(false);
-      return;
+      setAmountIsValid(false); 
+      return; // return if amount is not valid
     }
 
-    props.onAddToCart(enteredAmountNumber);
-  };
+    props.onAddToCart(enteredAmountNumber); // call onAddToCart prop with enteredAmountNumber
+  }; 
 
   return (
     <form className="form" onSubmit={submitHandler}>

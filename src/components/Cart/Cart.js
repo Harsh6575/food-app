@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext } from 'react'; 
 
 import Modal from '../UI/Modal';
 import CartItem from './CartItem';
@@ -8,7 +8,7 @@ import CartContext from '../../store/Cart-context';
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `$${cartCtx.totalAmout}`;
+  const totalAmount = `$${cartCtx.totalAmount}`;
 
   const hasItems = cartCtx.items.length > 0;
 

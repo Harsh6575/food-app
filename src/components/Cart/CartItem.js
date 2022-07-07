@@ -1,4 +1,4 @@
-import './CartItem.css';
+import './CartItem.css'; // import css
 
 const CartItem = (props) => {
 
@@ -12,7 +12,7 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className='actions'>
-        <button onClick={props.onRemove}>−</button>
+        <button onClick={props.onRemove}>-</button>
         <button onClick={props.onAdd}>+</button>
       </div>
     </li>
