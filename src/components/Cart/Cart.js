@@ -8,7 +8,7 @@ import CartContext from '../../store/Cart-context';
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `$${cartCtx.totalAmount}`;
+  const totalAmount = `₹${cartCtx.totalAmount}`;
 
   const hasItems = cartCtx.items.length > 0;
 

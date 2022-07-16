@@ -21,7 +21,7 @@ const MealItem = (props) => {
       <div>
         <h3>{props.name}</h3>
         <div className='description'>{props.description}</div>
-        <div className='m-price'>${props.price}</div>
+        <div className='m-price'>₹{props.price}</div>
         <img src={props.imageUrl} alt='unsplash'/>
       </div>
       <div>
