@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'; // import React's hooks from react
+import React,{ useContext, useEffect, useState } from 'react'; // import React's hooks from react
 
 import CartIcon from '../Cart/CartIcon'; // import CartIcon from src/components/Cart/CartIcon.js
 import CartContext from '../../store/Cart-context'; // import CartContext from src/store/Cart-context.js

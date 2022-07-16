@@ -1,4 +1,5 @@
 import './CartItem.css'; // import css
+import React from 'react';
 
 const CartItem = (props) => {
 
