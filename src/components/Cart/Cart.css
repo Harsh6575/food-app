@@ -43,3 +43,8 @@
     background-color: #1A5653;
     color: white;
 }
+
+.submitting-data-output{
+    font-size: 2rem;
+    padding: 1rem;
+}

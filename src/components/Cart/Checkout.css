@@ -1,0 +1,65 @@
+.co-form {
+    margin: 1rem 0;
+    height: 19rem;
+    overflow: auto;
+}
+
+.co-control {
+    margin-bottom: 0.5rem;
+}
+
+.co-control label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.co-control input {
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 20rem;
+    max-width: 100%;
+}
+
+.co-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.co-actions button {
+    font: inherit;
+    color: #107869;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 25px;
+    padding: 0.5rem 2rem;
+}
+
+.co-actions button:hover,
+.co-actions button:active {
+    background-color: #107869;
+    color: white;
+}
+
+.co-actions .submit {
+    border: 1px solid#107869;
+    background-color: #107869;
+    color: white;
+}
+
+.co-actions .submit:hover,
+.co-actions .submit:active {
+    background-color: #107869;
+}
+
+.invalid label {
+    color: #781010;
+}
+
+.invalid input {
+    border-color: #107869;
+    background-color: #ffeff1;
+}

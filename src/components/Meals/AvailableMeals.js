@@ -1,44 +1,72 @@
-import Card from '../UI/Card';
-import MealItems from './MealItems/MealItems';
-import './AvailableMeals.css';
-import React,{ useEffect } from 'react';
-
-const DUMMY_MEALS = [
-  {
-    id: 'm1',
-    name: 'Pasta',
-    description: 'Pasta is a type of food typically made from a dough of durum wheat flour, sometimes known as "foccacia", and formed by a process called maceration. Pasta is usually made in an open-face, hollowed-out bowl, and is then cooked by boiling water or steaming in a saucepan.',
-    price: 80,
-    imageUrl: 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-  },
-  {
-    id: 'm2',
-    name: 'Pizza',
-    description: 'Pizza is a flatbread generally topped with tomato sauce and cheese and baked in an oven. It is commonly topped with a selection of meats, vegetables, and condiments.',
-    price: 100,
-    imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-  },
-  {
-    id: 'm3',
-    name: 'Burger',
-    description: 'A hamburger is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun.',
-    price: 50,
-    imageUrl: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80',
-  }
-];
+import Card from '../UI/Card'; //card component
+import MealItems from './MealItems/MealItems'; //meal items component
+import './AvailableMeals.css'; //available meals component css
+import React, { useEffect, useState } from 'react';  
 
 const AvailableMeals = () => {
 
-  useEffect(()=>{
-    fetch()
-  })
+  const [meals, setMeals] = useState([]); //meals state
 
-  const mealsList = DUMMY_MEALS.map((meal) => (
+  const [isLoading, setIsLoading] = useState(true); //is loading state
+
+  const [hasError, setHasError] = useState(); //has error state
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+
+      const response = await fetch(
+        'https://food-app-25e86-default-rtdb.firebaseio.com/meals.json'
+      ); //fetch meals
+
+      const responseData = await response.json(); //get response data
+
+      if (!response.ok) {
+        throw new Error('Something went Wrong!!'); //throw error if response is not ok
+      } 
+
+      const loadMeals = []; //load meals array
+
+      for (const key in responseData) {
+        loadMeals.push({
+          id: key,
+          name: responseData[key].name,
+          price: responseData[key].price,
+          imageUrl: responseData[key].imageUrl
+        }); //push meals to load meals array
+      }; //for loop
+
+      setMeals(loadMeals); //set meals to load meals array 
+      setIsLoading(false); //set is loading to false 
+    }
+
+    fetchMeals().catch(error => {
+      setIsLoading(false); //set is loading to false
+      setHasError(error.message); //set has error to error message
+    }); //fetch meals
+
+  }, []); //use effect
+
+  if (isLoading) {
+    return (
+      <section>
+        <h4 className='mealsLoading'>Loading...</h4>
+      </section>
+    ); //if is loading return loading message and loading spinner
+  }; 
+
+  if (hasError) {
+    return (
+      <section>
+        <h4 className='mealsError'>{Error.message}</h4>
+      </section>
+    ); //if has error return error message
+  };
+
+  const mealsList = meals.map((meal) => (
     <MealItems
       key={meal.id}
       id={meal.id}
       name={meal.name}
-      description={meal.description}
       imageUrl={meal.imageUrl}
       price={meal.price}
     />

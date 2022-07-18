@@ -12,12 +12,19 @@
     font-size: 25px;
 }
 
-.description{
-    font-style: italic;
-}
-
 .m-price{
     font-weight: bold;
     font-size: 1.25rem;
     margin-top: 0.25rem;
+}
+
+.meal img{
+    min-width: 50vw;
+}
+
+@media (max-width:500px){
+    .meal{
+        display: flex;
+        flex-direction: column;
+    }
 }

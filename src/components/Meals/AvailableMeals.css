@@ -16,6 +16,17 @@
     height: auto;
 }
 
+.mealsLoading{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.mealsError{
+    text-align: center;
+    color: red;
+    font-size: 1.7rem;
+}
+
 @keyframes meals-apperance {
     0% {
         opacity: 0;

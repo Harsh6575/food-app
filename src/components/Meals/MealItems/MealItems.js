@@ -5,7 +5,7 @@ import CartContext from '../../../store/Cart-context';
 import './MealItems.css';
 
 const MealItem = (props) => {
-  const cartCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext); //get cart context
 
   const addToCartHandler = amount => {
     cartCtx.addItem({
@@ -13,14 +13,13 @@ const MealItem = (props) => {
       name: props.name,
       amount: amount,
       price: props.price,
-    });
-  };
+    }); //add item to cart
+  }; //add to cart handler
 
   return (
     <li className='meal'>
       <div>
         <h3>{props.name}</h3>
-        <div className='description'>{props.description}</div>
         <div className='m-price'>₹{props.price}</div>
         <img src={props.imageUrl} alt='unsplash'/>
       </div>
