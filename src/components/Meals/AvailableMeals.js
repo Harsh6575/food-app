@@ -15,7 +15,7 @@ const AvailableMeals = () => {
     const fetchMeals = async () => {
 
       const response = await fetch(
-        'https://food-app-25e86-default-rtdb.firebaseio.com/meals.json'
+        'https://food-app-e4ded-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json'
       ); //fetch meals
 
       const responseData = await response.json(); //get response data

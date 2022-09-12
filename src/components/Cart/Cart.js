@@ -27,7 +27,7 @@ const Cart = (props) => {
   }; //add item to cart
 
   const orderHandler = () => {
-    setIsCheckout(true);
+    setIsCheckout(true)
   } //open checkout modal
 
   const submitOrderHandler = async (userData) => {
@@ -35,7 +35,7 @@ const Cart = (props) => {
     setIsSubmitting(true);
 
     await fetch(
-      'https://food-app-25e86-default-rtdb.firebaseio.com/order.json', {
+      'https://food-app-e4ded-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json', {
       method: 'POST',
       body: JSON.stringify({
         user: userData,

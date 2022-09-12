@@ -1,6 +1,6 @@
-import React,{ Fragment } from 'react'; // import Fragment from 'react';
+import React,{ Fragment } from 'react'; 
 
-import HeaderCartButton from './HeaderCartButton'; // import HeaderCartButton from './HeaderCartButton';
+import HeaderCartButton from './HeaderCartButton'; 
 import './Header.css'; // import css
 
 const Header = (props) => {
